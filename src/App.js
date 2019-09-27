@@ -6,16 +6,24 @@ const App = () => {
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" exact activeStyle={{ color: "green" }}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about" exact activeStyle={{ color: "green" }}>
+              About
+            </NavLink>
           </li>
           <li>
-            <Link to="/user/john">User John</Link>
+            <NavLink to="/user/john" exact activeStyle={{ color: "green" }}>
+              User John
+            </NavLink>
           </li>
           <li>
-            <Link to="/user/peter">USer Peter</Link>
+            <NavLink to="/user/peter" exact activeStyle={{ color: "green" }}>
+              USer Peter
+            </NavLink>
           </li>
         </ul>
         <Route
