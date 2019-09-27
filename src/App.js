@@ -1,9 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const App = () => {
   return (
     <Router>
       <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/user/john">User John</Link>
+          </li>
+          <li>
+            <Link to="/user/peter">USer Peter</Link>
+          </li>
+        </ul>
         <Route
           exact
           path="/"
