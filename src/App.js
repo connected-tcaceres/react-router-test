@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 const App = () => {
+  const [auth, setAuth] = useState({ loggedIn: false });
+
+  const loginHandle = () => {
+    console.log("1 auth: ", auth);
+    setAuth({ loggedIn: !auth });
+    console.log("2 auth: ", auth);
+  };
   return (
     <Router>
       <div>
@@ -26,6 +33,8 @@ const App = () => {
             </NavLink>
           </li>
         </ul>
+        <input type="button" value="log in" onClick={loginHandle}></input>
+
         <Route
           exact
           path="/"
