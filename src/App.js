@@ -4,9 +4,7 @@ const App = () => {
   const [auth, setAuth] = useState({ loggedIn: false });
 
   const loginHandle = () => {
-    console.log("1 auth: ", auth);
-    setAuth({ loggedIn: !auth });
-    console.log("2 auth: ", auth);
+    setAuth({ loggedIn: !auth.loggedIn });
   };
   return (
     <Router>
