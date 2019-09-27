@@ -31,6 +31,7 @@ const App = () => {
             </NavLink>
           </li>
         </ul>
+        <Prompt when={!auth.loggedIn} message="Are you sure?"></Prompt>
         <input type="button" value={auth.loggedIn ? "logout" : "login"} onClick={loginHandle}></input>
 
         <Route
