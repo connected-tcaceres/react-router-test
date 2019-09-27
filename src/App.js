@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink, Redirect } from "react-router-dom";
 const App = () => {
   const [auth, setAuth] = useState({ loggedIn: false });
 
@@ -27,7 +27,7 @@ const App = () => {
           </li>
           <li>
             <NavLink to="/user/peter" exact activeStyle={{ color: "green" }}>
-              USer Peter
+              User Peter
             </NavLink>
           </li>
         </ul>
@@ -47,14 +47,18 @@ const App = () => {
             return <h1>Welcome About</h1>;
           }}
         />
-        <Route exact path="/user/:username" component={User} />
+        <Route
+          exact
+          path="/user/:username"
+          render={({ match }) => (auth.loggedIn ? <User username={match.params.username} /> : <Redirect to="/" />)}
+        />
       </div>
     </Router>
   );
 };
 
-const User = ({ match }) => {
-  return <h1> Welcome User {match.params.username}</h1>;
+const User = ({ username }) => {
+  return <h1> Welcome User {username}</h1>;
 };
 
 export default App;
