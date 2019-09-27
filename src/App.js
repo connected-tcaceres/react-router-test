@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link, NavLink, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Prompt } from "react-router-dom";
 const App = () => {
   const [auth, setAuth] = useState({ loggedIn: false });
 
@@ -31,7 +31,7 @@ const App = () => {
             </NavLink>
           </li>
         </ul>
-        <input type="button" value="log in" onClick={loginHandle}></input>
+        <input type="button" value={auth.loggedIn ? "logout" : "login"} onClick={loginHandle}></input>
 
         <Route
           exact
